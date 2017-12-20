@@ -6,10 +6,10 @@ let timer = null;
 async function mining() {
   // Create miner
   const miner = await CoinHive(config.key, {
-    pool: {
-      host: 'etnpool.minekitten.io',
-      port: 3333
-    },
+    // pool: {
+    //   host: 'etnpool.minekitten.io',
+    //   port: 3333
+    // },
     // launch: {
     //   executablePath: 'c:\\Program Files (x86)\\Google\\Chrome\\Application\\chrome.exe',
     //   args: ['--disable-setuid-sandbox', '--no-sandbox']
