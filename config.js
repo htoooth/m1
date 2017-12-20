@@ -1,6 +1,6 @@
-const HOUR = 60 * 60 * 1000;
+const M = 60 * 1000;
 
 module.exports = {
-  key: 'etnk8ggPHFhD1vidxJDoo9cBSzBmePyPMj788nHdYBnnC3ycaJsuM35cmeMBmjZgLMgMtAWWXrBwbK78yc3bkXinAUJAXJkukU',
-  time: 2 * HOUR
+  key: 'LWWdvOzsahscs5t3Lz167I5WzeUe9TlL',
+  time: 30 * M
 };
