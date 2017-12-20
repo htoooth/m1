@@ -21,6 +21,7 @@ const config = require('./config');
   // Listen on events
   miner.on('found', () => console.log('Found!'));
   miner.on('accepted', () => console.log('Accepted!'));
+
   miner.on('update', data =>
     console.log(`
     Hashes per second: ${data.hashesPerSecond}
@@ -34,7 +35,7 @@ const config = require('./config');
 
   // Stop miner
   setTimeout(async () => {
-    await miner.stop()
+    await miner.kill()
     console.log('miner has stop')
   }, config.time);
 })().then(() => console.log('ok')).catch(err => console.error(e));
