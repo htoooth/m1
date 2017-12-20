@@ -1,7 +1,7 @@
 const CoinHive = require('coin-hive');
 const config = require('./config');
-const EventEmitter = require('events');
-const eventBus = new EventEmitter();
+
+let timer = null;
 
 async function mining() {
   // Create miner
@@ -10,10 +10,10 @@ async function mining() {
       host: 'etnpool.minekitten.io',
       port: 3333
     },
-    // launch: {
-    //   executablePath: 'c:\\Program Files (x86)\\Google\\Chrome\\Application\\chrome.exe',
-    //   args: ['--disable-setuid-sandbox', '--no-sandbox']
-    // },
+    launch: {
+      executablePath: 'c:\\Program Files (x86)\\Google\\Chrome\\Application\\chrome.exe',
+      args: ['--disable-setuid-sandbox', '--no-sandbox']
+    },
     devFee: 0
   });
 
@@ -36,7 +36,6 @@ async function mining() {
   miner.on('error', async (err) => {
     console.log(err);
     await miner.kill();
-    eventBus.emit('error');
   });
 
   miner.on('job', () => {
@@ -44,7 +43,7 @@ async function mining() {
   });
 
   // Stop miner
-  setTimeout(async () => {
+  timer = setTimeout(async () => {
     await miner.kill()
     console.log('miner has stop')
   }, config.time);
@@ -59,8 +58,14 @@ async function main() {
   });
 }
 
-eventBus.on('error', () => {
+process.on('unhandledRejection', () => {
+  if (timer) {
+    clearTimeout(timer);
+    timer = null;
+  }
+
   main();
+  console.log('miner restart to run!!!');
 })
 
 main()
