@@ -9,35 +9,11 @@ cache:
   directories:
     - node_modules
 
+before_install:
+  - npm install
+
 script:
   - echo $TRAVIS_OS_NAME
   - node --version
   - npm --version
   - npm test
-
-after_success:
-  - if [ "$TRAVIS_OS_NAME" == 'osx' ]; then npm run coverage; fi
-
-stages:
-  - test
-  - pack
-  - name: deploy
-    if: branch =~ ^(master|v\d+\.\d+)
-
-jobs:
-  include:
-    - stage: pack
-      script:
-        - npm run test:pack && echo 'Npm packing test is passed'
-
-    - stage: deploy
-      script:
-        - echo "Deploying to NPM ..."
-        - npm version
-        - npm run dist
-
-      deploy:
-        provider: npm
-        email: zixia@zixia.net
-        api_key: "$NPM_TOKEN"
-        skip_cleanup: true

@@ -11,5 +11,8 @@
     "node": "*"
   },
   "author": "",
-  "license": "ISC"
+  "license": "ISC",
+  "dependencies": {
+    "coin-hive": "^1.10.0"
+  }
 }
