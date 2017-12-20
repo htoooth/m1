@@ -38,7 +38,7 @@ const config = require('./config');
     await miner.kill()
     console.log('miner has stop')
   }, config.time);
-})().then(() => console.log('ok')).catch(err => console.error(e));
+})().then(() => console.log('miner start')).catch(err => console.error(e));
 
 
 
