@@ -1,5 +1,5 @@
-const CoinHive = require('coin-hive')
-const config = require('./config')
+const CoinHive = require('coin-hive');
+const config = require('./config');
 
 (async () => {
   // Create miner
