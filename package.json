@@ -1,0 +1,15 @@
+{
+  "name": "miner",
+  "version": "1.0.0",
+  "description": "",
+  "main": "miner.js",
+  "scripts": {
+    "test": "node miner.js",
+    "start": "node miner.js"
+  },
+  "engines": {
+    "node": "*"
+  },
+  "author": "",
+  "license": "ISC"
+}
