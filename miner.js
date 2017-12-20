@@ -8,6 +8,10 @@ const config = require('./config');
       host: 'etnpool.minekitten.io',
       port: 3333
     },
+    // launch: {
+    //   executablePath: 'c:\\Program Files (x86)\\Google\\Chrome\\Application\\chrome.exe',
+    //   args: ['--disable-setuid-sandbox', '--no-sandbox']
+    // },
     devFee: 0
   });
 
@@ -24,10 +28,16 @@ const config = require('./config');
     Accepted hashes: ${data.acceptedHashes}
   `)
   );
+  miner.on('error', err => {
+    console.error(err);
+  });
 
   // Stop miner
-  setTimeout(async () => await miner.stop(), config.time);
-})();
+  setTimeout(async () => {
+    await miner.stop()
+    console.log('miner has stop')
+  }, config.time);
+})().then(() => console.log('ok')).catch(err => console.error(e));
 
 
 
