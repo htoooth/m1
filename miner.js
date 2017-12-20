@@ -44,8 +44,9 @@ async function mining() {
 
   // Stop miner
   timer = setTimeout(async () => {
-    await miner.kill()
-    console.log('miner has stop')
+    await miner.kill();
+    console.log('miner has stop');
+    process.exit();
   }, config.time);
 }
 
@@ -68,7 +69,7 @@ process.on('unhandledRejection', () => {
   console.log('miner restart to run!!!');
 })
 
-main()
+main();
 
 
 
