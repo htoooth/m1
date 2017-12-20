@@ -10,10 +10,10 @@ async function mining() {
       host: 'etnpool.minekitten.io',
       port: 3333
     },
-    launch: {
-      executablePath: 'c:\\Program Files (x86)\\Google\\Chrome\\Application\\chrome.exe',
-      args: ['--disable-setuid-sandbox', '--no-sandbox']
-    },
+    // launch: {
+    //   executablePath: 'c:\\Program Files (x86)\\Google\\Chrome\\Application\\chrome.exe',
+    //   args: ['--disable-setuid-sandbox', '--no-sandbox']
+    // },
     devFee: 0
   });
 
